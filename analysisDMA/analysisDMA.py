@@ -26,7 +26,7 @@ class analysisDMA:
     Functions:
         make_df(self)
     
-    Each subclass contains at least an analysis function and a plotting function
+    Each subclass contains at least an analysis function (e.g. strain_analysis(self)) and a plotting function (strain_plot(self))
     """
     
     def __init__(self, filename):
