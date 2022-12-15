@@ -1,29 +1,33 @@
-#!/usr/bin/env python3
-# -*- coding: utf-8 -*-
-"""
-Created on Fri Dec  9 09:46:16 2022
-
-@author: adam
-"""
-
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
-import re
-import seaborn as sns
 from scipy.interpolate import interp1d
 from sklearn.linear_model import LinearRegression
-from scipy.signal import argrelextrema
-from scipy.signal import find_peaks
 from itertools import product
-plt.style.use('fivethirtyeight')
-import matplotlib.ticker as tck
-
 
 from DMA_extract import data_to_df
 from DMA_math import *
 
+plt.style.use('fivethirtyeight')
+
 class analysisDMA:
+    
+     """
+    Define a DMA analysis experiment object
+    
+    Instance Variables:
+        df = pandas dataframe containg raw data
+        exp_values = numerical value of experimental values determined from analysis
+        exp_name = names of experimental values
+        exp_unit = units for experimental values (e.g. MPa, minutes, ect.)
+        df_analysis = pandas dataframe containing experimental values with column names from exp_name
+        
+        
+    Functions:
+        make_df(self)
+    
+    Each subclass contains at least an analysis function and a plotting function
+    """
     
     def __init__(self, filename):
         self.df = data_to_df(filename)
