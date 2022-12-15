@@ -11,8 +11,8 @@ from DMA_math import *
 plt.style.use('fivethirtyeight')
 
 class analysisDMA:
-    
-     """
+        
+    """
     Define a DMA analysis experiment object
     
     Instance Variables:
@@ -21,12 +21,13 @@ class analysisDMA:
         exp_name = names of experimental values
         exp_unit = units for experimental values (e.g. MPa, minutes, ect.)
         df_analysis = pandas dataframe containing experimental values with column names from exp_name
+        df_analysis_units = pandas dataframe containing units for experimental values with column names from exp_name
         
         
     Functions:
         make_df(self)
     
-    Each subclass contains at least an analysis function (e.g. strain_analysis(self)) and a plotting function (strain_plot(self))
+    Each subclass contains at least an analysis function and a plotting function
     """
     
     def __init__(self, filename):
@@ -35,6 +36,7 @@ class analysisDMA:
         self.exp_values = np.array([[]])
         self.exp_unit = np.array([])
         self.df_analysis = pd.DataFrame()
+        self.df_analysis_units = pd.DataFrame()
     
     def make_df(self):
         if not len(self.df_analysis.index) > 0:
