@@ -1,11 +1,3 @@
-#!/usr/bin/env python3
-# -*- coding: utf-8 -*-
-"""
-Created on Fri Dec  9 09:40:30 2022
-
-@author: adam
-"""
-
 import pandas as pd
 import numpy as np
 from scipy.interpolate import interp1d
